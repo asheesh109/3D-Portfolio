@@ -1,0 +1,86 @@
+.contact {
+  height: 100%;
+  display: flex;
+  gap: 100px;
+}
+
+.cSection {
+  width: 50%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cSection:last-child {
+  background-color: rgba(2, 2, 45, 0.187);
+  margin: 50px 0px;
+  padding: 50px;
+  border-radius: 50% 0px;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(2, 2, 45, 0.066);
+  padding: 50px;
+  border-radius: 50px;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 13px;
+}
+
+.formButton {
+  background-color: #dd4c62;
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+  .form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+  }
+
+  .cSection {
+    width: 100%;
+  }
+
+  .cSection:first-child {
+    height: 70%;
+  }
+  .cSection:last-child {
+    height: 30%;
+  }
+}

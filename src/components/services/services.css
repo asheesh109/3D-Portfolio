@@ -1,0 +1,286 @@
+.services {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.sSection {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sTitle {
+  font-size: 88px;
+  margin-bottom: 24px;
+}
+
+.serviceList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service {
+  width: 65%;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #2f213f;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  
+}
+
+/* Dynamic hover effects */
+.service::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(221, 76, 98, 0.15), transparent);
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+.service:hover::before, .service.active::before {
+  transform: translateX(100%);
+}
+
+.service::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #dd4c62, #6c5c0c);
+  transition: width 0.4s ease;
+}
+
+.service:hover::after, .service.active::after {
+  width: 100%;
+}
+
+.service:hover, .service.active {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.serviceIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.service:hover .serviceIcon, .service.active .serviceIcon {
+  transform: rotate(15deg) scale(1.2);
+  box-shadow: 0 0 20px rgba(221, 76, 98, 0.5);
+}
+
+.serviceIcon img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.4s ease;
+}
+
+.service:hover .serviceIcon img, .service.active .serviceIcon img {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+.serviceInfo {
+  transition: all 0.4s ease;
+}
+
+.service:hover .serviceInfo, .service.active .serviceInfo {
+  transform: translateX(10px);
+}
+
+.serviceInfo h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.service:hover .serviceInfo h2, .service.active .serviceInfo h2 {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.serviceInfo h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #ffffff;
+  transition: width 0.4s ease;
+}
+
+.service:hover .serviceInfo h2::after, .service.active .serviceInfo h2::after {
+  width: 100%;
+}
+
+.serviceInfo h3 {
+  font-size: 13px;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.service:hover .serviceInfo h3, .service.active .serviceInfo h3 {
+  color: #f0f0f0;
+  opacity: 1;
+}
+
+.service:nth-child(1) .serviceIcon {
+  background-color: #dd4c62;
+}
+.service:nth-child(2) .serviceIcon {
+  background-color: #025656;
+}
+.service:nth-child(3) .serviceIcon {
+  background-color: #6c5c0c;
+}
+
+/* Active indicator */
+.service.active {
+  border-left: 4px solid #ff5a74;
+}
+
+/* Fancy highlight effect on active */
+.service.active .serviceIcon {
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(221, 76, 98, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(221, 76, 98, 0.8), 0 0 30px rgba(221, 76, 98, 0.4);
+  }
+}
+
+.counterList {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  padding: 10px;
+}
+
+.counter:hover {
+  transform: translateY(-10px);
+}
+
+.counter::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: rgba(221, 76, 98, 0.1);
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.counter:hover::before {
+  opacity: 1;
+}
+
+.counter h1 {
+  font-size: 48px;
+  color: #dd4c62;
+  transition: all 0.3s ease;
+}
+
+.counter:hover h1 {
+  color: #ff5a74;
+  text-shadow: 0 0 15px rgba(221, 76, 98, 0.5);
+  transform: scale(1.1);
+}
+
+.counter p {
+  font-size: 13px;
+  width: 120px;
+  transition: all 0.3s ease;
+}
+
+.counter:hover p {
+  opacity: 1;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1536px) {
+  .service,
+  .counterList {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .sTitle {
+    font-size: 72px;
+  }
+
+  .service {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sTitle {
+    font-size: 48px;
+  }
+
+  .service,
+  .counterList {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sSection {
+    width: 100%;
+  }
+
+  .sSection.right {
+    display: none;
+  }
+}
